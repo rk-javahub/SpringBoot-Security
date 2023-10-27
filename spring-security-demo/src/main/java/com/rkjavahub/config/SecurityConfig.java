@@ -20,7 +20,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 	
-	// Default user authentication (use user as username and password provided in console as password)
+	// Default user authentication (use user as  username and password provided in console as password)
 	/*
 	 * @Bean SecurityFilterChain securityFilterChain(HttpSecurity http) throws
 	 * Exception { http.authorizeHttpRequests(auths ->
