@@ -19,19 +19,20 @@ import org.springframework.security.web.SecurityFilterChain;
  */
 @Configuration
 public class SecurityConfig {
-	
-	// Default user authentication (use user as  username and password provided in console as password)
-	/*
-	 * @Bean SecurityFilterChain securityFilterChain(HttpSecurity http) throws
-	 * Exception { http.authorizeHttpRequests(auths ->
-	 * auths.anyRequest().authenticated()).httpBasic(withDefaults()); return
-	 * http.build(); }
-	 */
+
+	// Default user authentication (use user as username and password provided in
+	// console as password)
+
+	@Bean
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.authorizeHttpRequests(auths -> auths.anyRequest().authenticated()).httpBasic(withDefaults());
+		return http.build();
+	}
 
 	@Bean
 	InMemoryUserDetailsManager detailsManager() {
 		@SuppressWarnings("deprecation")
-		UserDetails userDetails = User.withDefaultPasswordEncoder().username("Rohit").password("solapur").roles("USER")
+		UserDetails userDetails = User.withDefaultPasswordEncoder().username("Rohit").password("admin").roles("USER")
 				.build();
 
 		return new InMemoryUserDetailsManager(userDetails);

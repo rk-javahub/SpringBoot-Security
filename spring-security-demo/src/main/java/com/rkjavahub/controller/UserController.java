@@ -30,6 +30,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@GetMapping(value = "/home")
+	public void homepage() {
+		System.out.print("Home page");
+	}
+
 	@GetMapping(value = "/")
 	public List<User> getAllUsers() {
 		return userService.getAllUser();
