@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.rkjavahub.controller;
 
@@ -27,28 +27,28 @@ import com.rkjavahub.services.UserService;
 @RequestMapping(value = "/users")
 public class UserController {
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@GetMapping(value = "/home")
-	public void homepage() {
-		System.out.print("Home page");
-	}
+    @GetMapping(value = "/home")
+    public void homepage() {
+        System.out.print("Home page");
+    }
 
-	@GetMapping(value = "/")
-	public List<User> getAllUsers() {
-		return userService.getAllUser();
-	}
+    @GetMapping(value = "/")
+    public List<User> getAllUsers() {
+        return userService.getAllUser();
+    }
 
-	@GetMapping(value = "/user/{userName}")
-	public User getUser(@PathVariable(value = "userName") String userName) {
-		return userService.getUser(userName);
-	}
+    @GetMapping(value = "/user/{userName}")
+    public User getUser(@PathVariable(value = "userName") String userName) {
+        return userService.getUser(userName);
+    }
 
-	@PostMapping(value = "/addUser")
-	public List<User> addUser(@RequestBody User user) {
-		return userService.addUser(user);
+    @PostMapping(value = "/addUser")
+    public List<User> addUser(@RequestBody User user) {
+        return userService.addUser(user);
 
-	}
+    }
 
 }

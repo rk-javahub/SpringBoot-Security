@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.rkjavahub.services;
 
@@ -17,24 +17,24 @@ import com.rkjavahub.model.User;
 @Service
 public class UserService {
 
-	private List<User> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
-	public UserService() {
-		users.add(new User("Rohit", "abc"));
-		users.add(new User("Sachin", "xyz"));
-	}
+    public UserService() {
+        users.add(new User("Rohit", "abc"));
+        users.add(new User("Sachin", "xyz"));
+    }
 
-	public List<User> getAllUser() {
-		return users;
-	}
+    public List<User> getAllUser() {
+        return users;
+    }
 
-	public User getUser(String username) {
-		return users.stream().filter(user -> user.getUsername().equals(username)).findAny().orElse(null);
-	}
+    public User getUser(String username) {
+        return users.stream().filter(user -> user.getUsername().equals(username)).findAny().orElse(null);
+    }
 
-	public List<User> addUser(User user) {
-		users.add(new User(user.getUsername(), user.getPassword()));
-		return getAllUser();
-	}
+    public List<User> addUser(User user) {
+        users.add(new User(user.getUsername(), user.getPassword()));
+        return getAllUser();
+    }
 
 }
