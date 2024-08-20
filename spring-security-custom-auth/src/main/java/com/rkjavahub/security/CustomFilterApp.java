@@ -1,12 +1,11 @@
-package com.rkjavahub.security.formbasedauth;
+package com.rkjavahub.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FormbasedauthApplication {
+public class CustomFilterApp {
     public static void main(String[] args) {
-        SpringApplication.run(FormbasedauthApplication.class, args);
+        SpringApplication.run(CustomFilterApp.class, args);
     }
-
 }
