@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: spring-security-custom-auth
+
+  security:
+    user:
+      name: rohit
+      password: xuv500
