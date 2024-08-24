@@ -1,12 +1,26 @@
-package com.rkjavahub.security.in_memory_auth.controller;
+package com.rkjavahub.security.rolebasedauth.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
+
     @GetMapping("/hello")
+    public String hello() {
+        return "Hello";
+    }
+
+    @GetMapping("/helloUser")
+    @PreAuthorize("hasRole('USER')")
     public String helloUser() {
         return "Hello User";
+    }
+
+    @GetMapping("/helloAdmin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String helloAdmin() {
+        return "Hello Admin";
     }
 }
