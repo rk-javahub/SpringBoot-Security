@@ -3,8 +3,7 @@ package com.rkjavahub.security.in_memory_auth.config;
 /*
 Here we are overriding SecurityFilterChain for customization
 @Configuration provides configuration to application context
-
- */
+*/
 
 
 import org.springframework.context.annotation.Bean;

@@ -7,6 +7,7 @@ Here we are overriding SecurityFilterChain for customization
  */
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,14 +18,21 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+    @Autowired
+    DataSource dataSource; // Autowire h2 datasource
+
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) -> requests.requestMatchers("/h2-console/**").permitAll().anyRequest().authenticated()); // Prevent H2 console page from authentication filter
@@ -38,11 +46,23 @@ public class SecurityConfig {
 
     @Bean
     UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("Rohit").password("{noop}xuv500").roles("USER").build();
+        UserDetails user = User.withUsername("Rohit").password(passwordEncoder().encode("xuv500")).roles("USER").build();
 
-        UserDetails user1 = User.withUsername("Sachin").password("{noop}mrf").roles("ADMIN").build();
+        UserDetails user1 = User.withUsername("Sachin").password(passwordEncoder().encode("mrf")).roles("ADMIN").build();
 
-        return new InMemoryUserDetailsManager(user, user1);
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+        jdbcUserDetailsManager.createUser(user);
+        jdbcUserDetailsManager.createUser(user1);
+
+        return jdbcUserDetailsManager;
+    }
+
+    /*
+    created bean for password encoding
+     */
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
 
