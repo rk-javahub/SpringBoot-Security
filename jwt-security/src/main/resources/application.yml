@@ -2,7 +2,6 @@ spring:
   application:
     name: spring-security-custom-auth
 
-
   h2:
     console:
       enabled: true
