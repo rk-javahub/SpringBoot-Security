@@ -73,4 +73,3 @@ public class HelloController {
         return ResponseEntity.ok(response);
     }
 }
-git stat
