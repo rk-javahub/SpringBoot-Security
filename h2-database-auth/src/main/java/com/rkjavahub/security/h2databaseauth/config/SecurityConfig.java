@@ -31,7 +31,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class SecurityConfig {
     @Autowired
-    DataSource dataSource; // Autowire h2 datasource
+    private DataSource dataSource; // Autowire h2 datasource
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
