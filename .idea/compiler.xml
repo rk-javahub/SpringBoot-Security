@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jwt-security" />
+        <module name="h2-database-auth" />
+        <module name="in-memory-auth" />
+        <module name="spring-security-custom-auth" />
+        <module name="spring-security-form-auth" />
+        <module name="role-based-auth" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="h2-database-auth" options="-parameters" />
+      <module name="in-memory-auth" options="-parameters" />
+      <module name="jwt-security" options="-parameters" />
+      <module name="role-based-auth" options="-parameters" />
+      <module name="spring-security-custom-auth" options="-parameters" />
+      <module name="spring-security-form-auth" options="-parameters" />
+    </option>
+  </component>
+</project>
