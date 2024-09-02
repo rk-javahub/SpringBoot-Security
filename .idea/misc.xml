@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/h2-database-auth/pom.xml" />
         <option value="$PROJECT_DIR$/spring-security-form-auth/pom.xml" />
         <option value="$PROJECT_DIR$/spring-security-custom-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-security-oauth2-keycloak-demo-initial/pom.xml" />
       </list>
     </option>
   </component>

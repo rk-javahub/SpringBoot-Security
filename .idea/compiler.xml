@@ -2,12 +2,16 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="oauth2-pkce-demo" />
         <module name="jwt-security" />
+        <module name="oauth2-authorization-code-demo" />
         <module name="h2-database-auth" />
+        <module name="microservice-1" />
         <module name="in-memory-auth" />
         <module name="spring-security-custom-auth" />
         <module name="spring-security-form-auth" />
@@ -20,6 +24,9 @@
       <module name="h2-database-auth" options="-parameters" />
       <module name="in-memory-auth" options="-parameters" />
       <module name="jwt-security" options="-parameters" />
+      <module name="microservice-1" options="-parameters" />
+      <module name="oauth2-authorization-code-demo" options="-parameters" />
+      <module name="oauth2-pkce-demo" options="-parameters" />
       <module name="role-based-auth" options="-parameters" />
       <module name="spring-security-custom-auth" options="-parameters" />
       <module name="spring-security-form-auth" options="-parameters" />
